@@ -1,0 +1,28 @@
+
+    <form #basicForm="ngForm" (ngSubmit)="getData(basicForm.value)">
+      <div style="margin-bottom: 50px;">
+      <label style="width: 50%;height:60px; font-size: 60px;margin-left: 25%;margin-bottom: 50px;margin-top: 10px;font-weight: bold;">Currency Convertor</label>
+      </div>
+    <input type="number" #amount  name="amt"  placeholder="Enter amount" style="width: 50%;height:60px; font-size: 30px;margin-left: 25%;margin-bottom: 30px;margin-top: 10px;">
+    <br><br>
+    <!-- <div><input type="text" id="first_name" name="first_name" [(ngModel)]="first_name"></div> -->
+<div style="margin-bottom: 8%;margin-top: 5%;">
+<label style="margin-right:20px;margin-left:15%;font-size: 30px; font-weight: bold;">From:</label> <select #from name="from" id="from" style="width: 50%;height: 60px;font-size: 20px;">
+  <option  *ngFor="let cur of currencies" style="font-size:30px; ">{{cur}}</option>
+  
+</select>
+</div>
+<br><br>
+<div style="margin-left: 11%;">
+<label style="margin-right:20px;margin-left:15%;font-size: 30px; font-weight: bold;">To:</label>  <select #to name="to" id="to" style="width: 50%;height: 60px;font-size: 20px;">
+    <option *ngFor="let cur of currencies">{{cur}}</option>
+    
+  </select>
+</div>
+  <br><br>
+<button (click)="convert(amount.value,from.value,to.value)">Convert</button>
+<br>
+<label style="margin-right:20px;margin-left:40%;font-size: 40px; font-weight: bold;">{{convertedamt}}</label>
+</form>
+
+
